@@ -54,7 +54,7 @@ public class PlayGameTest {
 
     @Test public void getMethodForPlayGame() {
         req.put("Method", "GET");
-        req.put("Cookie", "board=_________; playerOne=c; playerTwo=c; boardSize=3");
+        req.put("Cookie", "board=XO_______; playerOne=c; playerTwo=c; boardSize=3");
         resp = playGame.respond(req);
         String body = new String((byte[]) resp.get("message-body"));
         Assert.assertTrue(body.contains("X"));
