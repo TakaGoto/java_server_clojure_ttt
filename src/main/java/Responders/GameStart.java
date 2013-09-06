@@ -1,5 +1,6 @@
 package Responders;
 
+import Parser.ClojureParser;
 import Presenters.BoardPresenter;
 import Ui.JavaTTTUi;
 import com.server.Handlers.Responder;
@@ -53,7 +54,8 @@ public class GameStart implements Responder {
             resp.put("message-body", "".getBytes(Charset.forName("utf-8")));
         } else {
             Hashtable settings = parseCookies();
-            Board board = Game.playGame(javaTTTUi, settings, "");
+            Board board = ClojureParser.playGame(javaTTTUi, settings);
+            //Board board = Game.playGame(javaTTTUi, settings, "");
             String body = BoardPresenter.generateBoard(board.getSlots());
             resp.put("message-body", body.getBytes(Charset.forName("utf-8")));
             resp.put("status-line", ResponseStatusLine.get("200", req.get("HTTP-Version")));

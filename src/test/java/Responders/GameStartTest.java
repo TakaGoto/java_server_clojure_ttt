@@ -48,8 +48,8 @@ public class GameStartTest {
     @Test public void createsAGameAfterSettings() throws IOException {
         req.put("Method", "GET");
         req.put("HTTP-Version", "HTTP/1.0");
-        cookies.add("playerOne=human; path=/");
-        cookies.add("playerTwo=computer; path=/");
+        cookies.add("playerOne=h; path=/");
+        cookies.add("playerTwo=c; path=/");
         cookies.add("board=_________; path=/");
         cookies.add("boardSize=3; path=/");
         gameStart.cookies = cookies;
@@ -67,16 +67,19 @@ public class GameStartTest {
     @Test public void gameStartGetStoresCookies() {
         req.put("Method", "GET");
         req.put("HTTP-Version", "HTTP/1.0");
-        cookies.add("playerOne=human; path=/");
-        cookies.add("playerTwo=computer; path=/");
+        cookies.add("playerOne=h; path=/");
+        cookies.add("playerTwo=c; path=/");
         cookies.add("board=_________; path=/");
         cookies.add("boardSize=3; path=/");
         gameStart.cookies = cookies;
         resp = gameStart.respond(req);
         List<String> cookies = gameStart.cookies;
         assertEquals("board=_________; path=/player_move", cookies.get(0));
-        assertEquals("playerOne=human; path=/player_move", cookies.get(1));
-        assertEquals("playerTwo=computer; path=/player_move", cookies.get(2));
+        assertEquals("playerOne=h; path=/player_move", cookies.get(1));
+        assertEquals("playerTwo=c; path=/player_move", cookies.get(2));
         assertEquals("boardSize=3; path=/player_move", cookies.get(3));
+    }
+
+    @Test public void testClojureImport() {
     }
 }

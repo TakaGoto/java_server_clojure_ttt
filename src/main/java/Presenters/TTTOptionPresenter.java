@@ -5,12 +5,12 @@ public class TTTOptionPresenter {
         String htmlOptions = "<form class='start-button' action='/game' method=\"post\">";
         htmlOptions += "<small> player one </small>";
         htmlOptions += "<select name=\"playerOne\" size=\"1\">";
-        htmlOptions += "<option value=" + "human> human" + "</option>";
-        htmlOptions += "<option value=" + "computer> computer" + "</option></select>";
+        htmlOptions += "<option value=" + "h> human" + "</option>";
+        htmlOptions += "<option value=" + "c> computer" + "</option></select>";
         htmlOptions += "<small> player two </small>";
         htmlOptions += "<select name=\"playerTwo\" size=\"1\">";
-        htmlOptions += "<option value=" + "human> human" + "</option>";
-        htmlOptions += "<option value=" + "computer> computer" + "</option></select>";
+        htmlOptions += "<option value=" + "h> human" + "</option>";
+        htmlOptions += "<option value=" + "c> computer" + "</option></select>";
         htmlOptions += "<small> board size </small>";
         htmlOptions += "<select name=\"boardSize\" size=\"1\">";
         htmlOptions += "<option value=" + "3> 3" + "</option>";
