@@ -17,12 +17,6 @@
         </dependency>
 
         <dependency>
-            <groupId>TicTacToe</groupId>
-            <artifactId>TicTacToeJar</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>TakaServer</groupId>
             <artifactId>TakaServerJar</artifactId>
             <version>1.0.0</version>
