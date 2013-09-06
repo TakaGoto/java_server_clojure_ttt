@@ -25,15 +25,6 @@ public class ClojureParser {
         for(char c: board.toCharArray()) {
             newBoard.add(String.valueOf(c));
         }
-//        newBoard.add(String.valueOf(board.charAt(0)));
-//        newBoard.add(String.valueOf(board.charAt(1)));
-//        newBoard.add(String.valueOf(board.charAt(2)));
-//        newBoard.add(String.valueOf(board.charAt(3)));
-//        newBoard.add(String.valueOf(board.charAt(4)));
-//        newBoard.add(String.valueOf(board.charAt(5)));
-//        newBoard.add(String.valueOf(board.charAt(6)));
-//        newBoard.add(String.valueOf(board.charAt(7)));
-//        newBoard.add(String.valueOf(board.charAt(8)));
         return newBoard;
     }
 
