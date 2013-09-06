@@ -27,6 +27,18 @@
             <artifactId>TakaServerJar</artifactId>
             <version>1.0.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.clojure</groupId>
+            <artifactId>clojure</artifactId>
+            <version>1.5.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ttt_clojure</groupId>
+            <artifactId>ttt_clojure</artifactId>
+            <version>0.0.0</version>
+        </dependency>
     </dependencies>
 <build>
   <pluginManagement>
