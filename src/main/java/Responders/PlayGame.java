@@ -7,9 +7,7 @@ import Ui.JavaTTTUi;
 import com.server.Handlers.Responder;
 import com.server.Responses.ResponseStatusLine;
 import com.tictactoe.Board.Board;
-import com.tictactoe.Game;
 
-import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Hashtable;

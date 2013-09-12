@@ -14,7 +14,7 @@ import java.util.Hashtable;
 import java.util.List;
 
 public class GameStart implements Responder {
-    JavaTTTUi javaTTTUi = new JavaTTTUi();
+    JavaTTTUi ui = new JavaTTTUi();
     protected List cookies = new ArrayList<String>();
     private Hashtable resp = new Hashtable();
     private Hashtable req = new Hashtable();
@@ -54,7 +54,7 @@ public class GameStart implements Responder {
             resp.put("message-body", "".getBytes(Charset.forName("utf-8")));
         } else {
             Hashtable settings = parseCookies();
-            Board board = ClojureParser.playGame(javaTTTUi, settings);
+            Board board = ClojureParser.playGame(ui, settings);
             String body = BoardPresenter.generateBoard(board.getSlots());
             resp.put("message-body", body.getBytes(Charset.forName("utf-8")));
             resp.put("status-line", ResponseStatusLine.get("200", req.get("HTTP-Version")));
