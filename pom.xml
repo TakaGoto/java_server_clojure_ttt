@@ -26,13 +26,17 @@
         <dependency>
             <groupId>TakaServer</groupId>
             <artifactId>TakaServerJar</artifactId>
+            <scope>system</scope>
             <version>1.0.0</version>
+            <systemPath>${project.basedir}/lib/java_server.jar</systemPath>
         </dependency>
 
         <dependency>
             <groupId>TicTacToe</groupId>
             <artifactId>TicTacToeJar</artifactId>
+            <scope>system</scope>
             <version>1.0.0</version>
+            <systemPath>${project.basedir}/lib/TicTacToe.jar</systemPath>
         </dependency>
 
         <dependency>
