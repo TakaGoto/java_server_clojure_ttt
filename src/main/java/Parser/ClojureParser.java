@@ -1,6 +1,5 @@
 package Parser;
 
-import Ui.JavaTTTUi;
 import clojure.lang.*;
 import com.tictactoe.Board.Board;
 
@@ -37,19 +36,21 @@ public class ClojureParser {
         return builder.toString();
     }
 
-    public static Board playGame(JavaTTTUi ui, Hashtable settings, String move) {
+    public static Board playGame(Hashtable settings, String move) {
         Board board = new Board(Integer.parseInt((String) settings.get("boardSize")));
         setUpClojureEnv();
         Var play = RT.var("ttt.game", "play");
+        Var ui = RT.var("clojure_web_ui.web-ui", "clojure-web-ui");
         PersistentVector returnBoard = (PersistentVector) play.invoke(ui, parseToKeyword(settings), move);
         board.setSlots(parseArrayBoard(returnBoard));
         return board;
     }
 
-    public static Board playGame(JavaTTTUi ui, Hashtable settings) {
+    public static Board playGame(Hashtable settings) {
         Board board = new Board(Integer.parseInt((String) settings.get("boardSize")));
         setUpClojureEnv();
         Var play = RT.var("ttt.game", "play");
+        Var ui = RT.var("clojure_web_ui.web-ui", "clojure-web-ui");
         PersistentVector returnBoard = (PersistentVector) play.invoke(ui, parseToKeyword(settings));
         board.setSlots(parseArrayBoard(returnBoard));
         return board;
@@ -68,10 +69,16 @@ public class ClojureParser {
     public static void requireClojureTTT() {
         Var require = RT.var("clojure.core", "require");
         require.invoke(Symbol.create("ttt.game"));
+        require.invoke(Symbol.create("clojure_web_ui.web-ui"));
     }
 
     public static void setUpClojureEnv() {
         loadClojure();
         requireClojureTTT();
+    }
+
+    public static Object getMessage() {
+        Var message = (RT.var("clojure_web_ui.web-ui", "message"));
+        return message.deref();
     }
 }

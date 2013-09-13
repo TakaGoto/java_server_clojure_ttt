@@ -38,10 +38,9 @@ public class PlayGame implements Responder {
     }
 
     private void doGet() {
-        JavaTTTUi javaTTTUi = new JavaTTTUi();
         Hashtable settings = parseCookie(req);
-        Board board = ClojureParser.playGame(javaTTTUi, settings);
-        String body = GamePresenter.generateMessage(javaTTTUi.getMessage());
+        Board board = ClojureParser.playGame(settings);
+        String body = GamePresenter.generateMessage(String.valueOf(ClojureParser.getMessage()));
         body += BoardPresenter.generateBoard(board.getSlots());
         resp.put("message-body", body.getBytes(Charset.forName("utf-8")));
         resp.put("status-line", ResponseStatusLine.get("200", req.get("HTTP-Version")));
@@ -50,10 +49,9 @@ public class PlayGame implements Responder {
     }
 
     private void doPost() {
-        JavaTTTUi javaTTTUi = new JavaTTTUi();
         Hashtable settings = parseCookie(req);
         Hashtable params = (Hashtable) req.get("Body");
-        Board board  = ClojureParser.playGame(javaTTTUi, settings, (String) params.get("playerMove"));
+        Board board  = ClojureParser.playGame(settings, (String) params.get("playerMove"));
         resp.put("message-body", "".getBytes(Charset.forName("utf-8")));
         header.put("Location", "http://" + req.get("Host") + "/player_move");
         resp.put("status-line", ResponseStatusLine.get("301", req.get("HTTP-Version")));
